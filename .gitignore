@@ -27,7 +27,7 @@ target/
 /.nb-gradle/
 build/
 !**/src/main/**/build/
-!**/src/test/**/build/
+!**/src/test/**/build/sta
 
 ### VS Code ###
 .vscode/
@@ -35,4 +35,4 @@ build/
 ### Banco de Dados ###
 .db
 .db-journal
-!**desafio-tecnico\desafio.db
+desafio.db
