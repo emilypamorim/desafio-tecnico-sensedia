@@ -1,12 +1,13 @@
 package emily.amorim.desafio_tecnico.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -18,8 +19,6 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import java.io.Serializable;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
 
 @NoArgsConstructor
 @Getter
@@ -27,29 +26,27 @@ import java.util.List;
 @EqualsAndHashCode(of="id")
 
 @Entity
-@Table(name="tb_usuario")
-public class Usuario implements Serializable {
+@Table(name="tb_projeto")
+public class Projeto implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @NotBlank(message = "Nome é obrigatório")
+
+    @NotBlank
     private String nome;
-    @NotBlank(message = "Telefone é obrigatório")
-    private String telefone;
 
-    @DateTimeFormat(pattern = "dd/MM/yyyy")
+    @JsonFormat(pattern = "yyyy-MM-dd")
     @NotNull
-    private LocalDate dataNascimento;
+    private LocalDate dataInicio;
+
+    @JsonFormat(pattern = "yyyy-MM-dd")
     @NotNull
-    private boolean concordaCadastro;
+    private LocalDate dataFim;
 
-
-    @OneToMany(mappedBy = "usuario")
-    @JsonIgnoreProperties("usuario")
-    private List<Projeto> projetos = new ArrayList<>();
-
-
-
+    @ManyToOne // muitos projetos para um responsavel
+    @JsonIgnoreProperties("projetos")
+    @JoinColumn(name="usuario_id")
+    private Usuario usuario;
 
 }
