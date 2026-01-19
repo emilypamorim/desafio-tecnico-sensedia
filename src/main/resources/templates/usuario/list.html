@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista Usuarios</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<table class="table table-bordered">
+    <thead>
+    </thead>
+    <tbody>
+    <tr class="table-active" th:if="${usuarios.empty}">
+        <td colspan="2"> Nenhum usuário cadastro </td>
+    </tr>
+    <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Nome</th>
+        <th scope="col">Telefone</th>
+        <th scope="col">Data de nascimento</th>
+    </tr>
+    <tr  th:each="usuario : ${usuarios}">
+        <td><span th:text="${usuario.id}"> ID </span></td>
+        <td><span th:text="${usuario.nome}"> Nome </span></td>
+        <td><span th:text="${usuario.telefone}"> Telefone </span></td>
+        <td><span th:text="${#temporals.format(usuario.dataNascimento, 'dd/MM/yyyy')}"> Data de nascimento </span></td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>
