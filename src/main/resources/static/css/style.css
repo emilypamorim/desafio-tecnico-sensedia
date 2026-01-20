@@ -5,3 +5,47 @@ body {
 table {
     padding: 90px !important;
 }
+
+.col-title-pro {
+    --bs-table-bg: #E25218;
+    --bs-table-color: #FFFFFF;
+    background-color: var(--bs-table-bg);
+    color: var(--bs-table-color);
+}
+
+.col-title-usu {
+    --bs-table-bg: #512364;
+    --bs-table-color: #FFFFFF;
+    background-color: var(--bs-table-bg);
+    color: var(--bs-table-color);
+}
+
+#novo-usuario{
+    --bs-table-bg: #E25218;
+    --bs-table-color: #FFFFFF;
+    background-color: var(--bs-table-bg);
+    color: var(--bs-table-color);
+}
+
+#novo-projeto{
+    --bs-table-bg: #512364;
+    --bs-table-color: #FFFFFF;
+    background-color: var(--bs-table-bg);
+    color: var(--bs-table-color);
+}
+
+#cadastro-usuario{
+    --bs-table-bg: #E25218;
+    --bs-table-color: #FFFFFF;
+    background-color: var(--bs-table-bg);
+    color: var(--bs-table-color);
+}
+
+#cadastro-projeto{
+    --bs-table-bg: #512364;
+    --bs-table-color: #FFFFFF;
+    background-color: var(--bs-table-bg);
+    color: var(--bs-table-color);
+}
+
+

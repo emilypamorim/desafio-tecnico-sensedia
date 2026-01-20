@@ -4,9 +4,11 @@
     <meta charset="UTF-8">
     <title>Lista Projetos</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 <body>
+<h3>Tabela de projetos</h3>
 <table class="table table-bordered">
     <thead>
     </thead>
@@ -15,10 +17,12 @@
         <td colspan="2"> Nenhum projeto cadastro </td>
     </tr>
     <tr>
-        <th scope="col">Id</th>
-        <th scope="col">Nome</th>
-        <th scope="col">Data de inicio</th>
-        <th scope="col">Data de fim</th>
+        <th scope="col" class="col-title-pro">Id</th>
+        <th scope="col" class="col-title-pro">Nome</th>
+        <th scope="col" class="col-title-pro">Data de inicio</th>
+        <th scope="col" class="col-title-pro">Data de fim</th>
+        <th scope="col" class="col-title-pro">Responsável</th>
+        <th scope="col" class="col-title-pro">Apagar</th>
     </tr>
     <tr  th:each="projeto : ${projetos}">
         <td><span th:text="${projeto.id}"> ID </span></td>
@@ -26,10 +30,21 @@
         <td><span th:text="${#temporals.format(projeto.dataInicio, 'dd/MM/yyyy')}"> Data de inicio </span></td>
         <td><span th:text="${#temporals.format(projeto.dataFim, 'dd/MM/yyyy')}"> Data de fim </span></td>
         <td><span th:text="${projeto.usuario.nome}"> Nome </span></td>
-
+        <td><a th:href="@{/projeto/excluir/{id}(id=${projeto.id})}"
+               class="btn btn-danger"
+               onclick="return confirm('Tem certeza que deseja excluir este projeto?')">
+            <i class="bi bi-trash"></i>
+        </a></td>
     </tr>
     </tbody>
 </table>
+
+<button type="button"
+        id="novo-usuario"
+        class="btn btn-primary btn-lg"
+        th:onclick="|window.location.href='@{/usuario/cadastro}'|">
+        Cadastrar Novo Usuário
+</button>
 
 </body>
 </html>

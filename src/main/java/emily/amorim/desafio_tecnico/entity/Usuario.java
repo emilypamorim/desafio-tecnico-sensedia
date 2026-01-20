@@ -2,6 +2,7 @@ package emily.amorim.desafio_tecnico.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -45,7 +46,7 @@ public class Usuario implements Serializable {
     private boolean concordaCadastro;
 
 
-    @OneToMany(mappedBy = "usuario")
+    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, orphanRemoval = true)// se excluir usuario, os projetos associados a ele também serão excluidos
     @JsonIgnoreProperties("usuario")
     private List<Projeto> projetos = new ArrayList<>();
 

@@ -6,6 +6,7 @@ import emily.amorim.desafio_tecnico.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -33,6 +34,12 @@ public class UsuarioViewController {
     public String listaUsuario(org.springframework.ui.Model model){
         model.addAttribute("usuarios", service.getAll());
         return "usuario/list";
+    }
+
+    @GetMapping("/excluir/{id}")
+    public String excluirUsuario(@PathVariable Long id) {
+        service.delete(id);
+        return "redirect:/usuario/listar";
     }
 
 }
