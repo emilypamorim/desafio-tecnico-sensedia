@@ -1,0 +1,7 @@
+package emily.amorim.desafio_tecnico.service.exception;
+
+public class EntityNotFound extends RuntimeException{
+    public EntityNotFound(String msg){
+        super(msg);
+    }
+}

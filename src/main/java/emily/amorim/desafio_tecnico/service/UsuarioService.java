@@ -2,6 +2,7 @@ package emily.amorim.desafio_tecnico.service;
 
 import emily.amorim.desafio_tecnico.entity.Usuario;
 import emily.amorim.desafio_tecnico.repository.UsuarioRepository;
+import emily.amorim.desafio_tecnico.service.exception.EntityNotFound;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,9 +14,9 @@ public class UsuarioService {
     @Autowired
     private UsuarioRepository repository;
     public Usuario create (Usuario obj){
-        // salva no banco apenas se concordar cadastro estiver selecionado
-        //if(!obj.isConcordaCadastro()){
-        //}
+        if(!obj.isConcordaCadastro()){
+        throw new EntityNotFound("É necesárrio concordar com o cadastro para proseguir.");
+        }
         return repository.save(obj);
     }
 
@@ -25,6 +26,9 @@ public class UsuarioService {
 
     public Usuario getId(Long id){
         Optional <Usuario> obj = repository.findById(id);
+        if(obj.isEmpty()){
+            throw new EntityNotFound("Usuario de id "+id+" não encontrado");
+        }
         return obj.get();
     }
 

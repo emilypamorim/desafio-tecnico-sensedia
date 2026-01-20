@@ -21,6 +21,9 @@ public class ProjetoViewController {
 
     @GetMapping("/cadastro")
     public String cadastroProjeto(org.springframework.ui.Model model){
+        if(usuarioService.getAll().isEmpty()){
+            return "redirect:usuario/cadastro";
+        }
         model.addAttribute("projeto", new Projeto());
         model.addAttribute("usuarios", usuarioService.getAll());
         return "projeto/create";
