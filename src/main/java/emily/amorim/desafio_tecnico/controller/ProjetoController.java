@@ -28,6 +28,7 @@ public class ProjetoController {
         return ResponseEntity.status(HttpStatus.CREATED).body(service.create(obj));
     }
 
+
     @DeleteMapping(value = "/{id}")
     public ResponseEntity<Projeto> delete(@PathVariable Long id){
         service.delete(id);

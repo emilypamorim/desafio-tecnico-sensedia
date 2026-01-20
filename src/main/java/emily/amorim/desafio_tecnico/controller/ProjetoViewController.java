@@ -34,7 +34,7 @@ public class ProjetoViewController {
 
     @GetMapping("/listar")
     public String listaProjeto(org.springframework.ui.Model model){
-        model.addAttribute("Projetos", service.getAll());
+        model.addAttribute("projetos", service.getAll());
         return "projeto/list";
     }
 

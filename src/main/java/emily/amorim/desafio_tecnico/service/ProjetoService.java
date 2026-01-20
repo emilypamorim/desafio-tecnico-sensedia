@@ -4,6 +4,7 @@ import emily.amorim.desafio_tecnico.entity.Projeto;
 import emily.amorim.desafio_tecnico.entity.Usuario;
 import emily.amorim.desafio_tecnico.repository.ProjetoRepository;
 import emily.amorim.desafio_tecnico.repository.UsuarioRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -27,12 +28,14 @@ public class ProjetoService {
         return repository.save(obj);
     }
 
+    @Transactional
     public void delete(Long id){
         repository.deleteById(id);
     }
 
     public Projeto getId(Long id){
-        Optional <Projeto> obj = repository.findById(id);
+        Optional <Projeto> obj = Optional.ofNullable(repository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Usuário não encontrado com o ID: " + id)));
         return obj.get();
     }
 

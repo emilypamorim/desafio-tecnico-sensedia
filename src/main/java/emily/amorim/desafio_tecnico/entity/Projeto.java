@@ -17,7 +17,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import java.io.Serializable;
 import java.time.LocalDate;
-g
+
 @NoArgsConstructor
 @Getter
 @Setter
