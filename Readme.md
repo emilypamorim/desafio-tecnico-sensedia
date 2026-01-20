@@ -20,13 +20,21 @@ um mini sistema web simples para:
 
 
 ## Dependências
+- Java JDK 24
+- Maven
+- Git
+- IDE da sua prederência (Intellij foi a usada)
 
 
-## Demonstração
-
+## Como rodar
 
 
 
 ## Aprendizados
+
+## Decisões Técnincas
+
+### Por que java?
+### Por que SQLite?
 
 
