@@ -39,17 +39,25 @@ um mini sistema web simples para:
 
 ### 4° Acessar o sistema
 > Após o terminal exibir que o tom cat foi iniciado. Entre no seu navegador e acesse a URL **http://localhost:8080/**
-![tabeladeprojetos.png](../../Pictures/Screenshots/tabeladeprojetos.png)
+<img width="1912" height="962" alt="tabeladeprojetos" src="https://github.com/user-attachments/assets/92f6b132-83b8-4959-bc0e-dda81dd195c1" />
+
 > Rota de Cadastro de Usuário: **http://localhost:8080/usuario/cadastro**
+<img width="1913" height="967" alt="requisitoconcordacadastro" src="https://github.com/user-attachments/assets/92259ca6-d57a-4615-84c8-7154edbdfc6e" />
 
 >Rota de Listagem de Usuários: **http://localhost:8080/usuario/listar**
+<img width="1912" height="968" alt="tabelausuario" src="https://github.com/user-attachments/assets/44c7304c-4fed-4521-b36d-41ac8c781d1c" />
 
 > Rota de Cadastro de Projeto: **http://localhost:8080/projeto/cadastro**
+<img width="1912" height="967" alt="validacaodatamenor" src="https://github.com/user-attachments/assets/00277930-d9e1-49e7-ba37-0ca3c75ca14d" />
 
 > Rota de Listagem de Projetos: **http://localhost:8080/projeto/listar**
+<img width="1916" height="965" alt="tabelaprojetos" src="https://github.com/user-attachments/assets/c8d46030-f872-4bd1-88af-9eafaacbb51f" />
 
 
 ## Estrutura de Pastas
+
+<img width="725" height="646" alt="Captura de tela 2026-01-20 183850" src="https://github.com/user-attachments/assets/02f44b12-00fe-4607-9bdb-bd600ce12235" />
+
 - controller: contém os controllers responsáveis por receber requisições HTTP, tratar entrada de dados e direcionar o fluxo da aplicação
 - service: concentra as regras de negócio e validações
 - repository: responsável pela comunicação com o banco de dados e persistência das entidades
