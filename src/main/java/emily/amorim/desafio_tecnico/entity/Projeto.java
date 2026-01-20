@@ -15,11 +15,9 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.springframework.format.annotation.DateTimeFormat;
-
 import java.io.Serializable;
 import java.time.LocalDate;
-
+g
 @NoArgsConstructor
 @Getter
 @Setter
@@ -47,6 +45,7 @@ public class Projeto implements Serializable {
     @ManyToOne // muitos projetos para um responsavel
     @JsonIgnoreProperties("projetos")
     @JoinColumn(name="usuario_id")
+    @NotNull
     private Usuario usuario;
 
 }
